@@ -1,6 +1,12 @@
 $primary-color: #74c0fc;
 $secondary-color: #f8f9fa;
 $text-color: #e9ecef;
+$mobile: 30em;
+@mixin mobile {
+  @media (max-width: $mobile) {
+    @content;
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -8,6 +14,9 @@ $text-color: #e9ecef;
 }
 html {
   font-size: 62.5%;
+  @include mobile {
+    font-size: 40%;
+  }
 }
 @mixin transition-ease {
   transition: all 0.5s ease-in-out;

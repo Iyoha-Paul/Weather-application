@@ -5,9 +5,10 @@ body {
 
   font-size: 2rem;
   font-family: "Rubik", sans-serif;
-  color: white;
+  color: $text-color;
 }
-.check-city {
+.check-city,
+.btn {
   cursor: pointer;
   border: none;
   padding: 1.2rem 2.4rem;
@@ -28,14 +29,17 @@ body {
     border: $secondary-color solid 1px;
   }
 }
+.refresh {
+  position: absolute;
+}
 .weather {
-  &-heading {
+  &__heading {
     display: flex;
     justify-content: center;
     color: $primary-color;
     margin: 4rem auto;
   }
-  &-input {
+  &__input {
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
       rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
     background-color: $primary-color;
@@ -58,7 +62,7 @@ body {
       gap: 4rem;
     }
   }
-  &-result {
+  &__result {
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
       rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 
@@ -66,12 +70,15 @@ body {
     margin: 0 auto;
     padding: 2rem;
     display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    @include mobile {
+      grid-template-columns: 1fr 1fr;
+    }
     gap: 2rem;
     border-radius: 9px;
     box-shadow: none;
     background-color: #fff;
     justify-content: center;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 }
 .input {
@@ -116,16 +123,16 @@ body {
     display: flex;
     align-items: flex-start;
     gap: 0.1rem;
-    &-num {
+    &__num {
       font-size: 5rem;
     }
   }
   &__weather {
-    &-symbol {
+    &__symbol {
       font-size: 4rem;
       width: fit-content;
     }
-    &-msg {
+    &__msg {
     }
   }
 }

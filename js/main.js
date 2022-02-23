@@ -2,7 +2,7 @@
 let checkWeather = document.querySelector('.check-city');
 let cityName = document.querySelector('.city__name');
 let InputCityName = document.querySelector('.input');
-let cityContainer = document.querySelector('.weather-result');
+let cityContainer = document.querySelector('.weather__result');
 let city;
 let request = new XMLHttpRequest();
 let cities = '';
@@ -36,22 +36,22 @@ function readApi() {
                         ${name} <span class="city__country"> ${country}</span>
                     </div>
                     <div class="city__temp">
-                        <span class="city__temp-num">${Math.round(
+                        <span class="city__temp__num">${Math.round(
                           temp - 273
-                        )}</span> <span class="city__temp-deg">&#176;</span> <span
-                            class="city__temp-symbol">C</span>
+                        )}</span> <span class="city__temp__deg">&#176;</span> <span
+                            class="city__temp__symbol">C</span>
                     </div>
                     <div class="city__weather">
-                        <div class="city__weather-symbol"><i
-                                class="fa-solid fa-cloud-showers-heavy city__weather-symbol"></i></div>
-                                <P class="city__weather-msg">${description}</P>
+                        <div class="city__weather__symbol"><i
+                                class="fa-solid fa-cloud-showers-heavy city__weather__symbol"></i></div>
+                                <P class="city__weather__msg">${description}</P>
 
                     </div>
                 </div>`;
   cities += htmlContent;
   let writeThis = [...cities];
   cityContainer.innerHTML = cities;
-  console.log([cities]);
+  console.log(weatherData);
 }
 
 // function displayData() {
