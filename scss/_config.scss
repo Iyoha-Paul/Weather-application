@@ -1,0 +1,21 @@
+$primary-color: #74c0fc;
+$secondary-color: #f8f9fa;
+$text-color: #e9ecef;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+@mixin transition-ease {
+  transition: all 0.5s ease-in-out;
+}
+@function set-test-color($color) {
+  @if (lightness($color) > 40%) {
+    @return #000;
+  } @else {
+    @return white;
+  }
+}

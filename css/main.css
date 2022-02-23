@@ -1,0 +1,128 @@
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  height: 100vh;
+  font-size: 2rem;
+  font-family: "Rubik", sans-serif;
+  color: white;
+}
+
+.check-city {
+  cursor: pointer;
+  border: none;
+  padding: 1.2rem 2.4rem;
+  border-radius: 9px;
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: #74c0fc solid 1px;
+  background-color: #fff;
+}
+.check-city:hover, .check-city:focus, .check-city:active {
+  background-color: #74c0fc;
+  color: #f8f9fa;
+  border: #f8f9fa solid 1px;
+}
+
+.weather-heading {
+  display: flex;
+  justify-content: center;
+  color: #74c0fc;
+  margin: 4rem auto;
+}
+.weather-input {
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  background-color: #74c0fc;
+  max-width: 100rem;
+  margin: 0 auto;
+  padding: 2rem;
+  display: grid;
+  grid-template-rows: 1fr 0.5fr;
+  gap: 2rem;
+  border-radius: 9px;
+  margin-bottom: 7rem;
+}
+.weather-input__salutation {
+  font-size: 5rem;
+  justify-self: center;
+}
+.weather-input__input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
+.weather-result {
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  max-width: 100rem;
+  margin: 0 auto;
+  padding: 2rem;
+  display: grid;
+  gap: 2rem;
+  border-radius: 9px;
+  box-shadow: none;
+  background-color: #fff;
+  justify-content: center;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.input {
+  padding: 1.2rem 2.4rem;
+  font-size: 2rem;
+  border-radius: 9px;
+  font-family: "Rubik", sans-serif;
+  font-weight: 500;
+}
+
+.container {
+  width: 100vw;
+}
+
+.city {
+  justify-self: stretch;
+  border-radius: 9px;
+  padding: 1.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: #74c0fc;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+.city__country {
+  font-size: 1.6rem;
+  margin-left: 0.7rem;
+  background-color: #ffd43b;
+  padding: 0.2rem 0.6rem;
+  border-radius: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.city__name {
+  font-size: 3.2rem;
+  display: flex;
+  align-items: flex-start;
+}
+.city__temp {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.1rem;
+}
+.city__temp-num {
+  font-size: 5rem;
+}
+.city__weather-symbol {
+  font-size: 4rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}/*# sourceMappingURL=main.css.map */
