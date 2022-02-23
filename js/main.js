@@ -5,7 +5,7 @@ let InputCityName = document.querySelector('.input');
 let cityContainer = document.querySelector('.weather__result');
 let city;
 let request = new XMLHttpRequest();
-let cities = '';
+let cities = [];
 // let inputCity = prompt('enter city');
 
 checkWeather.addEventListener('click', checkWeatherFunction);
@@ -48,9 +48,9 @@ function readApi() {
 
                     </div>
                 </div>`;
-  cities += htmlContent;
+  cities.push(htmlContent);
   let writeThis = [...cities];
-  cityContainer.innerHTML = cities;
+  cityContainer.innerHTML = cities.join('');
   console.log(weatherData);
 }
 
