@@ -3,12 +3,21 @@ let checkWeather = document.querySelector('.check-city');
 let cityName = document.querySelector('.city__name');
 let InputCityName = document.querySelector('.input');
 let cityContainer = document.querySelector('.weather__result');
+let refreshBtn = document.querySelector('.refresh');
 let city;
 let request = new XMLHttpRequest();
 let cities = [];
-// let inputCity = prompt('enter city');
+let searchedCities = [];
+
+refreshBtn.addEventListener('click', refreshWeatherList);
 
 checkWeather.addEventListener('click', checkWeatherFunction);
+
+function refreshWeatherList() {
+  searchedCities = [];
+  cities = [];
+  cityContainer.innerHTML = cities.join('');
+}
 
 function checkWeatherFunction() {
   city = InputCityName.value;
@@ -22,6 +31,13 @@ function checkWeatherFunction() {
 
 function readApi() {
   let weatherData = JSON.parse(this.responseText);
+  console.log(weatherData);
+  if (
+    weatherData.message === 'city not found' ||
+    weatherData.message === 'Nothing to geocode'
+  ) {
+    alert('Not a city. please try again');
+  }
   let {
     name: name,
     sys: { country },
@@ -30,8 +46,12 @@ function readApi() {
   let [weatherDescription] = weatherData.weather;
   let { description } = weatherDescription;
   console.log(name, temp, description);
-  // displayData();
-  let htmlContent = ` <div class="city">
+
+  if (searchedCities.includes(name)) {
+    alert('City already among list. please try again');
+  } else {
+    searchedCities.push(name);
+    let htmlContent = ` <div class="city">
   <div class="city__name">
                         ${name} <span class="city__country"> ${country}</span>
                     </div>
@@ -48,10 +68,12 @@ function readApi() {
 
                     </div>
                 </div>`;
-  cities.push(htmlContent);
-  let writeThis = [...cities];
-  cityContainer.innerHTML = cities.join('');
+    cities.push(htmlContent);
+
+    cityContainer.innerHTML = cities.join('');
+  }
   console.log(weatherData);
+  console.log(searchedCities);
 }
 
 // function displayData() {

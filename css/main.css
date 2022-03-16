@@ -99,6 +99,7 @@ body {
   padding: 1.2rem 2.4rem;
   font-size: 2rem;
   border-radius: 9px;
+  border: none;
   font-family: "Rubik", sans-serif;
   font-weight: 500;
 }
