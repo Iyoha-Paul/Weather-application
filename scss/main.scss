@@ -21,6 +21,15 @@ body {
   justify-content: center;
   border: $primary-color solid 1px;
   background-color: #fff;
+  &-del {
+    color: gray;
+    padding: 1rem 1rem;
+    border-radius: 200px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translate(50%, -50%);
+  }
   &:hover,
   &:focus,
   &:active {
@@ -99,7 +108,7 @@ body {
   padding: 1.5rem 3rem;
   display: flex;
   flex-direction: column;
-
+  position: relative;
   gap: 2rem;
   background-color: $primary-color;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,

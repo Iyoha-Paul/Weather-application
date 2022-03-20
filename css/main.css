@@ -35,6 +35,16 @@ body {
   border: #74c0fc solid 1px;
   background-color: #fff;
 }
+.check-city-del,
+.btn-del {
+  color: gray;
+  padding: 1rem 1rem;
+  border-radius: 200px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translate(50%, -50%);
+}
 .check-city:hover, .check-city:focus, .check-city:active,
 .btn:hover,
 .btn:focus,
@@ -114,6 +124,7 @@ body {
   padding: 1.5rem 3rem;
   display: flex;
   flex-direction: column;
+  position: relative;
   gap: 2rem;
   background-color: #74c0fc;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;

@@ -4,20 +4,35 @@ let cityName = document.querySelector('.city__name');
 let InputCityName = document.querySelector('.input');
 let cityContainer = document.querySelector('.weather__result');
 let refreshBtn = document.querySelector('.refresh');
+let weatherContainer = document.querySelector('.weather__result');
+let delBtns = document.querySelectorAll('.btn-del');
 let city;
 let request = new XMLHttpRequest();
 let cities = [];
 let searchedCities = [];
+let id = 0;
 
 refreshBtn.addEventListener('click', refreshWeatherList);
-
+delBtns.forEach(item =>
+  item.addEventListener('click', deleteWeatherInfo(item))
+);
 checkWeather.addEventListener('click', checkWeatherFunction);
+weatherContainer.addEventListener('click', function (event) {
+  let element = event.target;
+  const Job = event.target.attributes.job.value;
+  console.log(Job);
 
+  if (Job == 'delete') {
+    removeWeatherInfo(element);
+  }
+});
 function refreshWeatherList() {
   searchedCities = [];
   cities = [];
-  cityContainer.innerHTML = cities.join('');
+
+  weatherContainer.innerHTML = '';
 }
+function deleteWeatherInfo(item) {}
 
 function checkWeatherFunction() {
   city = InputCityName.value;
@@ -51,7 +66,7 @@ function readApi() {
     alert('City already among list. please try again');
   } else {
     searchedCities.push(name);
-    let htmlContent = ` <div class="city">
+    let newCity = ` <div class="city">
   <div class="city__name">
                         ${name} <span class="city__country"> ${country}</span>
                     </div>
@@ -67,15 +82,32 @@ function readApi() {
                                 <P class="city__weather__msg">${description}</P>
 
                     </div>
+                    <button class="btn-del btn" job = 'delete' id = ${id}>X</button>
+
                 </div>`;
-    cities.push(htmlContent);
 
-    cityContainer.innerHTML = cities.join('');
+    weatherContainer.insertAdjacentHTML('beforeend', `${newCity}`);
+    id++;
+    // cities.push(newCity);
+
+    // cityContainer.innerHTML = cities.join('');
+    // cityContainer.insertAdjacentHTML('afterbegin', newCity);
   }
-  console.log(weatherData);
-  console.log(searchedCities);
+  document.querySelector('.input').value = '';
+  // console.log(weatherData);
+  // console.log(searchedCities);
 }
+function removeWeatherInfo(element) {
+  // let temp = Number(element.attributes.id.value);
+  // console.log(element.attributes.id.value);
 
+  // searchedCities[element.attributes.id.value] = '';
+
+  delete searchedCities[element.attributes.id.value];
+  // console.log(searchedCities);
+  element.parentNode.parentNode.removeChild(element.parentNode);
+}
+// todoList[element.id].trash = true;
 // function displayData() {
 //   let htmlContent = ` <div class="city">
 //                     <div class="city__name">
