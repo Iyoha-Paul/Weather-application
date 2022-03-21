@@ -12,6 +12,13 @@ let cities = [];
 let searchedCities = [];
 let id = 0;
 
+InputCityName.addEventListener('keypress', function (e) {
+  console.log(e.key);
+
+  if (e.key === 'Enter') {
+    checkWeatherFunction();
+  }
+});
 refreshBtn.addEventListener('click', refreshWeatherList);
 delBtns.forEach(item =>
   item.addEventListener('click', deleteWeatherInfo(item))
@@ -36,16 +43,25 @@ function deleteWeatherInfo(item) {}
 
 function checkWeatherFunction() {
   city = InputCityName.value;
-  request.open(
-    'GET',
+  fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=7c9fb7a1ec4a9a3b5b7ef7192288f343`
-  );
-  request.send();
-  request.addEventListener('load', readApi);
+  )
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      readApi(data);
+    });
+  // request.open(
+  //   'GET',
+  //   `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=7c9fb7a1ec4a9a3b5b7ef7192288f343`
+  // );
+  // request.send();
+  // request.addEventListener('load', readApi);
 }
 
-function readApi() {
-  let weatherData = JSON.parse(this.responseText);
+function readApi(weatherData) {
+  // let weatherData = data;
   console.log(weatherData);
   if (
     weatherData.message === 'city not found' ||
