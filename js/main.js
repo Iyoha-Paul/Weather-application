@@ -46,12 +46,8 @@ function checkWeatherFunction() {
   fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=7c9fb7a1ec4a9a3b5b7ef7192288f343`
   )
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {
-      readApi(data);
-    });
+    .then(response => response.json())
+    .then(data => readApi(data));
   // request.open(
   //   'GET',
   //   `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=7c9fb7a1ec4a9a3b5b7ef7192288f343`
